@@ -328,13 +328,6 @@ nav .nav-reserve {
   color: var(--muted);
 }
 
-.text-link {
-  display: inline-block;
-  margin-top: 16px;
-  color: var(--brown);
-  border-bottom: 1px solid var(--brown);
-}
-
 .gallery {
   max-width: none;
   width: 100%;
