@@ -1,0 +1,653 @@
+/* サイト全体で使う色の変数 */
+:root {
+  --ink: #211b17;
+  --brown: #5a321e;
+  --brown-dark: #2a1a12;
+  --ember: #b84b24;
+  --cream: #f7f1e8;
+  --white: #FFFFFF;
+  --muted: #756b62;
+  --line: #ddd2c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.8;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ヘッダー全体の見た目 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(33, 27, 23, 0.97);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+}
+
+/* ヘッダーの中身を横並びに */
+.header-inner {
+  width: min(1180px, 92%);
+  min-height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* ロゴ全体 */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* ロゴ画像の大きさ */
+.logo img {
+  width: 140px;
+  height: 44px;
+    object-fit: contain;
+}
+
+/* メニューのリストを横並びに */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* メニューのリンクの文字デザイン */
+nav a {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #f1b676;
+}
+
+nav .nav-reserve {
+  padding: 9px 17px;
+  border: 1px solid #d8a16f;
+  color: #f4c58e;
+}
+
+/* ページ上部のメインビジュアル */
+.hero {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+}
+
+/* ヒーロー画像のサイズ */
+.hero > img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  filter: saturate(0.75);
+}
+
+/* 画像のフィルター */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(25, 16, 11, 0.82), rgba(25, 16, 11, 0.32) 58%, rgba(25, 16, 11, 0.1)),
+    linear-gradient(0deg, rgba(25, 16, 11, 0.35), transparent 50%);
+}
+
+/* 画像の上に表示する文字 */
+.hero-copy {
+  position: absolute;
+  top: 50%;
+  left: max(4%, calc((100% - 1180px) / 2));
+  width: min(650px, 88%);
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #a9552d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.hero .eyebrow {
+  color: #f0bd82;
+}
+
+/* メインタイトル */
+.hero h1 {
+  margin: 0 0 18px;
+  font-family: serif;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.hero h1 span {
+  color: #f4c58e;
+}
+
+.hero-copy > p:not(.eyebrow) {
+  max-width: 560px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* リンクをボタン風に */
+.button {
+  display: inline-block;
+  padding: 13px 26px;
+  border: 1px solid #f1c38f;
+  background: #7e351d;
+  color: #fff;
+  letter-spacing: 0.08em;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  background: #9b4425;
+  transform: translateY(-2px);
+}
+
+/* 各セクションに共通の幅と余白 */
+.section {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 90px 0;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.4;
+}
+
+.section-heading.center {
+  text-align: center;
+}
+
+.section-heading.center .eyebrow {
+  margin-bottom: 6px;
+}
+
+.intro {
+  border-bottom: 1px solid var(--line);
+}
+
+/* こだわり部分を2列に */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 70px;
+  align-items: center;
+  margin-top: 45px;
+}
+
+.intro p {
+  color: var(--muted);
+}
+
+.intro .lead {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quote-box {
+  padding: 35px;
+  background: var(--cream);
+  border-left: 4px solid var(--ember);
+}
+
+.quote-box span {
+  display: block;
+  font-family: serif;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.quote-box small {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.menu-section {
+  max-width: none;
+  width: 100%;
+  padding-right: max(5%, calc((100% - 1120px) / 2));
+  padding-left: max(5%, calc((100% - 1120px) / 2));
+  background: var(--cream);
+}
+
+/* メニューを4列に */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 45px;
+}
+
+/* 料理カード */
+.menu-card {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(49, 32, 20, 0.08);
+}
+
+/* カード画像の大きさ */
+.menu-card > img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  filter: saturate(0.82);
+}
+
+/* 料理名・説明・価格の部分 */
+.menu-card-body {
+  padding: 22px;
+}
+
+.menu-card h3 {
+  margin: 0 0 7px;
+  font-family: serif;
+  font-size: 24px;
+}
+
+.menu-card p {
+  min-height: 55px;
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.menu-card strong {
+  color: var(--ember);
+  font-size: 17px;
+}
+
+/* 店内紹介を画像と文章の2列に */
+.feature {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 75px;
+  align-items: center;
+}
+
+.feature-image {
+  overflow: hidden;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+  filter: saturate(0.75);
+}
+
+.feature-copy h2 {
+  margin: 0 0 20px;
+  font-family: serif;
+  font-size: clamp(31px, 4vw, 48px);
+  line-height: 1.45;
+}
+
+.feature-copy > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--brown);
+  border-bottom: 1px solid var(--brown);
+}
+
+.gallery {
+  max-width: none;
+  width: 100%;
+  padding-right: max(5%, calc((100% - 1120px) / 2));
+  padding-left: max(5%, calc((100% - 1120px) / 2));
+  background: #211a16;
+  color: #fff;
+}
+
+.gallery .eyebrow {
+  color: #d99b65;
+}
+
+/* 写真をグリッド状に */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+  margin-top: 45px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.gallery-grid img:first-child {
+  grid-row: 1 / 3;
+}
+
+/* アクセス部分を2列に */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  margin-top: 45px;
+  align-items: center;
+}
+
+.access-photo img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.access-info h3 {
+  margin: 0 0 20px;
+  font-family: serif;
+  font-size: 31px;
+}
+
+.access-info dl {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.access-info dt,
+.access-info dd {
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.access-info dt {
+  font-weight: 700;
+}
+
+.access-info dd {
+  color: var(--muted);
+}
+
+.notice {
+  color: #927f71;
+  font-size: 12px;
+}
+
+/* 予約エリア */
+.reserve {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 55px max(5%, calc((100% - 1120px) / 2));
+  background: #7b351e;
+  color: #fff;
+}
+
+.reserve .eyebrow {
+  color: #f3c18c;
+}
+
+.reserve h2 {
+  margin: 0 0 8px;
+  font-family: serif;
+  font-size: 34px;
+}
+
+.reserve p {
+  margin: 0;
+}
+
+.reserve-phone {
+  min-width: 270px;
+  padding-left: 35px;
+  border-left: 1px solid rgba(255,255,255,0.4);
+}
+
+.reserve-phone span,
+.reserve-phone small {
+  display: block;
+}
+
+.reserve-phone strong {
+  display: block;
+  margin: 3px 0;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+}
+
+/* フッター全体 */
+footer {
+  background: #181310;
+  color: #bcb0a7;
+}
+
+.footer-inner {
+  width: min(1120px, 90%);
+  min-height: 140px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-logo {
+  color: #fff;
+  font-family: serif;
+  font-size: 20px;
+}
+
+.footer-inner p {
+  margin: 4px 0 0;
+  font-size: 12px;
+}
+
+.copyright {
+  text-align: right;
+}
+
+/* ========================================
+   スマホ表示
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  /* ヘッダー */
+  .header-inner {
+    flex-direction: column;
+    min-height: auto;
+    padding: 15px 0;
+    gap: 15px;
+  }
+
+  .logo img {
+    width: 140px;
+    height: 44px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 18px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+
+  /* メイン画像 */
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero > img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  .hero-copy {
+    left: 5%;
+    width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+
+  /* 各セクション */
+  .section {
+    width: 90%;
+    padding: 60px 0;
+  }
+
+
+  /* こだわり：2列 → 1列 */
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+
+  /* お品書き：4列 → 2列 */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  /* 料理写真は元の比率を保つ */
+  .menu-card > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .menu-card-body {
+    padding: 16px;
+  }
+
+  .menu-card p {
+    min-height: auto;
+  }
+
+
+  /* 店内紹介：2列 → 1列 */
+  .feature {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  /* ギャラリー：1列にする */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+
+  .gallery-grid img:first-child {
+    grid-row: auto;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+
+  /* アクセス：2列 → 1列 */
+  .access-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .access-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  /* 予約：横並び → 縦並び */
+  .reserve {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .reserve-phone {
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-top: 25px;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.4);
+  }
+
+
+  /* フッター */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .copyright {
+    text-align: left;
+  }
+}
